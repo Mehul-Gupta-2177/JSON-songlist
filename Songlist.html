@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <title>JSON songlist</title>
+    <style>
+        table{
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+    <script language="javascript">
+        const songlist = [
+        {
+          title:"Can’t Help Falling In Love",
+          artist: "Elvis Presley",
+          music_genre: "Pop",
+          year: 1961
+        },
+        {
+          title:"Uptown Funk",
+          artist: "Bruno Mars",
+          music_genre: "Pop",
+          year: 2014
+        },
+        {
+          title:"Say So",
+          artist: "Elvis Presley",
+          music_genre: "Pop",
+          year: 2019
+        },
+        {
+          title:"Bless the Broken Road",
+          artist: "Elvis Presley",
+          music_genre: "Country",
+          year: 2004
+        },
+        {
+          title:"24k Magic",
+          artist: "Bruno Mars",
+          music_genre: "R and B",
+          year: 2016
+        },
+        {
+          title:"Adore You",
+          artist: "Harry Styles",
+          music_genre: "Pop",
+          year: 2019
+        },
+        {
+          title:"Africa",
+          artist: "Toto",
+          music_genre: "Pop",
+          year: 1982
+        },
+        {
+          title:"Best Day Of My Life",
+          artist: "American Authors",
+          music_genre: "Rock",
+          year: 2013
+        },
+        {
+          title:"Billie Jean",
+          artist: "Michael Jackson",
+          music_genre: "R and B",
+          year: 1982
+        },
+        {
+          title:"Kickstart My Heart",
+          artist: "Motley Crue",
+          music_genre: "Rock",
+          year: 1989
+        },
+        
+      ];
+    window.onload = function() {
+        
+            const Song  = JSON.stringify(songlist);
+            document.getElementById("result").innerHTML = Song;
+            var tab = "<table>";
+            for (var i = 0; i < songlist.length; i++) {
+                tab+="<tr>";
+                tab+="<td>"+ songlist[i].title + "<br>" + songlist[i].artist +"<br>" +  songlist[i].music_genre + "<br>" + songlist[i].year +"</td>";
+                tab+="</tr>";
+
+    }
+    tab+="</table>";     
+    document.getElementById("result2").innerHTML = tab;     
+         
+
+    btn = document.getElementById("button1");
+    btn.onclick = function() {
+        var tab2 = "<table>";
+        var type = document.form1.TypeofSong.value
+            for (var i = 0; i < songlist.length; i++) {
+                if(songlist[i].music_genre == type )
+                {
+                tab2+="<tr>";
+                tab2+="<td>"+ songlist[i].title + "<br>" +"</td>";
+                tab2+="</tr>";
+                }
+
+    }
+    tab2+="</table>";     
+    document.getElementById("result3").innerHTML = tab2;     
+    }
+}
+        </script>
+
+</head>
+<body>
+        <div id= "result">&nbsp;</div>
+        <div id= "result2">&nbsp;</div>
+
+        <form name = 'form1' method ="get"  action="#" >
+        <label for="TypeofSong">Type of Event: </label><br>
+        <select id="TypeofSong" name="TypeofSong">
+            <option value="R and B"> R and B</option>
+            <option value="Rock"> Rock </option>
+            <option value="Pop">Pop</option>
+            <option value="Country">Country</option>
+          </select>
+        <br>
+        <input type = "button" name ="button1" value = "Request Songs" id = "button1">
+        <br>
+        <div id= "result3">&nbsp;</div>
+        </form>
+</body>
+</html>
